@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Sliders</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.8.7/rzslider.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="TermsController as vm">
+  <div>
+    <div>
+      <section>
+        <span class="expend">Monthly Targeted Marketing Spend</span>
+        $<input type="number" ng-model="vm.marketingspend_slider.value" ng-change="vm.changeSubscriptionRevenue()">
+      </section>
+      <space>
+      </space>
+      <rzslider rz-slider-model="vm.marketingspend_slider.value" rz-slider-options="vm.marketingspend_slider.options"></rzslider>
+    </div>
+    <height>
+    </height>
+    <div>
+      <section>
+        <span class="expend">Average CPM</span>
+        $<input type="number" ng-model="vm.cpm_slider.value" ng-change="vm.changeSiteVisits()">
+      </section>
+      <space>
+      </space>
+      <rzslider rz-slider-model="vm.cpm_slider.value" rz-slider-options="vm.cpm_slider.options"></rzslider>
+    </div>
+    <height>
+    </height>
+    <div>
+      <span>Total new website visits from media spend: </span>{{vm.websiteVisits}}
+    </div>
+  </div>
+
+  <div class="divider">
+  </div>
+
+  <div>
+    <div>
+      <section>
+        <span class="expend">Total Retail Users</span>
+        <input type="number" ng-model="vm.totalUsers" ng-change="vm.changeSubscriptionRevenue()">
+      </section>
+<!-- <rzslider rz-slider-model="vm.percentpaidusers_slider.value" rz-slider-options="vm.percentpaidusers_slider.options"></rzslider> -->
+    </div>
+    <height>
+    </height>
+    <div>
+      <section>
+        <span class="expend">% of users paying for subscription</span>
+        <input type="number" ng-model="vm.percentpaidusers_slider.value" ng-change="vm.changeSubscriptionRevenue()">%
+      </section>
+      <space>
+      </space>
+      <rzslider rz-slider-model="vm.percentpaidusers_slider.value" rz-slider-options="vm.percentpaidusers_slider.options"></rzslider>
+    </div>
+    <height>
+    </height>
+    <div>
+      <section>
+        <span class="expend">Average Monthly Price</span>
+        $<input type="number" ng-model="vm.averagemonthlyprice_slider.value" ng-change="vm.changeSubscriptionRevenue()">
+      </section>
+      <space>
+      </space>
+      <rzslider rz-slider-model="vm.averagemonthlyprice_slider.value" rz-slider-options="vm.averagemonthlyprice_slider.options"></rzslider>
+    </div>
+    <height>
+    </height>
+    <div>
+      <span>Total Retail Subscription Revenue: </span>${{vm.subscriptionRevenue}}
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.8.7/rzslider.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/terms.controller.js"></script>
+</body>
+</html>
