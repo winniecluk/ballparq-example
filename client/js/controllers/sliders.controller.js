@@ -2,11 +2,11 @@
   'use strict';
 
   angular.module('app')
-    .controller('TermsController', TermsController);
+    .controller('SlidersController', SlidersController);
 
-  TermsController.$inject = ['$scope', '$interval', '$log'];
+  SlidersController.$inject = ['$scope', '$interval', '$log'];
 
-  function TermsController($scope, $interval, $log){
+  function SlidersController($scope, $interval, $log){
     var vm = this;
     vm.marketingspend_slider;
     vm.cpm_slider;

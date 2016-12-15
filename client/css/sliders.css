@@ -6,8 +6,12 @@ body {
   white-space: nowrap;
 }
 
+main {
+  margin: 30px;
+}
+
 input {
-  width: 60px;
+  width: 70px;
 }
 
 .rzslider {
