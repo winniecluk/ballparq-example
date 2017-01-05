@@ -9,3 +9,4 @@
   } // this closes the TermsController function
 
 })(); // this closes IIFE
+

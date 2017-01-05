@@ -1,0 +1,116 @@
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  // fontColor: '#666',
+  scaleGridLineColor: "rgba(0,0,0,0)",
+  defaultFontColor: '#111',
+  options: {
+    barThickness: '10px',
+    animateScale : true,
+    gridLines: {
+      display: false
+    }
+  },
+  // scales: {
+    // xAxes: [{
+    //             gridLines: {
+    //                 color: "rgba(0, 0, 0, 0)"
+    //             }
+    //         }],
+    // yAxes: [{
+    //             gridLines: {
+    //                 color: "rgba(0, 0, 0, 0)"
+    //             }
+    //         }]
+  //   scaleShowVerticalLines: false
+  //   },
+  // gridLines: {
+  //   color: "rgba(0, 0, 0, 0)"
+  // },
+  data: {
+    labels: ['FY1', 'FY2', 'FY3', 'FY4', 'FY5'],
+    datasets: [{
+      label: 'Total Revenue',
+      hoverBackgroundColor: "rgba(179,181,198,1)",
+      hoverBorderColor: "#fff",
+      pointHoverBackgroundColor: "#fff",
+      pointHoverBorderColor: "rgba(179,181,198,1)",
+      data: [-1, 19, 3, 17, 6, 3, 7],
+      borderColor: "rgba(255,255,255,1)",
+      backgroundColor: "rgba(88,162,208,1)"
+    }, {
+      label: 'EBITDA',
+      data: [2, 29, 5, 5, 2, 3, 10],
+      borderColor: "rgba(255,255,255,1)",
+      backgroundColor: "rgba(255,212,115,1)"
+    }]
+  }
+});
+var ctx2 = document.getElementById('myChart2').getContext('2d');
+var myChart2 = new Chart(ctx2, {
+  type: 'bar',
+  fontColor: '#000',
+  scales : {
+        xAxes : [ {
+            gridLines : {
+                display : false
+            }
+        } ]
+    },
+  // gridLines: {
+  //   display: false
+  // },
+  data: {
+    labels: ['FY1', 'FY2', 'FY3', 'FY4', 'FY5'],
+    datasets: [{
+      label: 'Total Revenue',
+      hoverBackgroundColor: "rgba(179,181,198,1)",
+      hoverBorderColor: "#fff",
+      pointHoverBackgroundColor: "#fff",
+      pointHoverBorderColor: "rgba(179,181,198,1)",
+      data: [-1, -9, 3, 15, 6, 1, 3],
+      borderColor: "rgba(255,255,255,1)",
+      backgroundColor: "rgba(88,162,208,1)"
+    }, {
+      label: 'EBITDA',
+      data: [2, 29, 5, 5, 2, 3, 10],
+      borderColor: "rgba(255,255,255,1)",
+      backgroundColor: "rgba(255,212,115,1)"
+    }]
+  }
+});
+</script>
+<div ng-controller="SearchController as vm">
+<img src="images/diamond_solid_yellow.png" class="top" alt="">
+  <div class="container">
+  <img src="images/logo_yellow.png" class="logo" alt="">
+  <h3 class="logotext">ballparq</h3>
+  <p>You can also create copies of your models to create “What If”
+    scenarios.<br> You can then securely share these with investors.</p>
+  <h1>Share With Investors</h1>
+  <fieldset class="form-group">
+  <legend>Compare Data for Investors</legend>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" ng-model="vm.selUserType" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="teacher" checked>
+      Worst Case Senario
+    </label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" ng-model="vm.selUserType" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="student">
+        Best Case Senaro
+    </label>
+  </div>
+</fieldset>
+  <h2>Ballparq Financial Forecast ($MM)</h2>
+  <!-- radio buttons ng-show and hide two results -->
+  <div>
+    <canvas class="" id="myChart" width="500px" height="116px" ng-show="vm.selUserType==='student'"></canvas>
+    <canvas class="" id="myChart2" width="500px" height="116px" ng-show="vm.selUserType==='teacher'"></canvas>
+  </div>
+</div>
+</div>
+
