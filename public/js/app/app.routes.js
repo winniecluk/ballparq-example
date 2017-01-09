@@ -26,6 +26,6 @@
         templateUrl: 'js/app/particles/particles.html',
         controller: 'ParticlesController as vm'
       });
-    $urlRouterProvider.otherwise('/sliders');
+    $urlRouterProvider.otherwise('/');
   }
 })();

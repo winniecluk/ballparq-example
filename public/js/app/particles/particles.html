@@ -11,10 +11,10 @@
     <canvas id="canvas"></canvas>
   </div>
   <div>
-    <button id="start">One</button>
+    <button ng-click="vm.createParticle()">One</button>
   </div>
   <div>
-    <button id="stream">Stream</button>
+    <button ng-click="vm.stream()">Stream</button>
   </div>
 
   <div class="space">
@@ -24,10 +24,10 @@
     <strong>Monthly Spend:</strong>
   </div>
   <div>
-    <input type="range" min="0" max="1000" step="1" onchange="particleSystem.start.monthlySpend(this.value)">
+    <input type="range" min="0" max="1000" step="1" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
   </div>
   <div>
-    $<input id="monthlySpendBox" type="text" disabled>
+    ${{vm.monthlySpendVal}}
   </div>
 
   <div class="space">
@@ -37,17 +37,17 @@
     <strong>Average CPM:</strong>
   </div>
   <div>
-    <input type="range" min="0" max="100" step="1" onchange="particleSystem.start.cpm(this.value)">
+    <input type="range" min="0" max="100" step="1" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
   </div>
   <div>
-    $<input id="cpmBox" type="text" disabled>
+    ${{vm.cpmVal}}
   </div>
 
   <div class="space">
   </div>
 
   <div>
-    Total web visits: <input id="webVisitsBox" type="text" disabled>
+    Total web visits: {{vm.cpmVal * vm.monthlySpendVal}}
   </div>
 
   <div class="space">
@@ -57,17 +57,17 @@
     <strong>Conversion Rate:</strong>
   </div>
   <div>
-    <input type="range" min="0" max="100" step="1" onchange="particleSystem.start.conversion(this.value)">
+    <input type="range" min="0" max="100" step="1" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">
   </div>
   <div>
-    <input id="conversionBox" type="text" disabled>%
+    {{vm.conversionRate}}%
   </div>
 
   <div class="space">
   </div>
 
   <div>
-    Monthly active users: <input id="monthlyActiveBox" type="text" disabled>
+    Monthly active users: {{vm.monthlyActiveUsers}}
   </div>
 
   <div class="space">
@@ -77,24 +77,18 @@
     <strong>Churn:</strong>
   </div>
   <div>
-    <input type="range" min="0" max="100" step="1" onchange="particleSystem.start.churn(this.value)">
+    <input type="range" min="0" max="100" step="1" ng-model="vm.churnVal" ng-change="vm.updateUsers()">
   </div>
   <div>
-    <input id="churnbox" type="text" disabled>%
+    {{vm.churnVal}}%
   </div>
 
   <div class="space">
   </div>
 
   <div>
-    User loss: <input id="userLossBox" type="text" disabled>
+    User loss: {{vm.userLoss}}
   </div>
 
-<!--   <script type="text/javascript" src="scripts/Particle.js"></script>
-  <script type="text/javascript" src="scripts/canvas.js"></script>
-  <script type="text/javascript">
-    particleSystem.start.init();
-    particleSystem.start.go();
-  </script> -->
 <!-- </body>
 </html> -->
