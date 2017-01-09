@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #ffd477;
+  background-color: #4d8bcf;
+  background-image: url("logoBackground2.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+h1{
+  text-align: right;
+  color: white;
+  margin-top: -280px;
+  padding-bottom: 200px;
+  margin-right: 5%;
+  font-size: 30px;
+}
+
+h2{
+  text-align: center;
+  color: white;
+  margin-top: -20px;
+}
+
+legend {
+  color: white;
+}
+
+canvas#myChart {
+  color: white;
+  background-color: transparent;
+  width: 50%;
+  height: 20%;
+}
+
+canvas#myChart2 {
+  color: white;
+  background-color: transparent;
+  width: 50%;
+  height: 20%;
+}
+
+p {
+  color: white;
+  text-align: center;
+  margin-top: -60px;
+  padding-bottom: 50px;
+  font-size: 20px;
+}
+
+canvas {
+/*  height: 539px;
+  width: 69px;*/
+  color: white;
+}
+
+.logo {
+  width: 4%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
+.logotext {
+  margin-left: 5.5%;
+  margin-top: -38px;
+  padding-bottom: 200px;
+}
+
+.top {
+  width: 20%;
+  margin-top: -11%;
+  margin-left: 40%;
+  margin-bottom: -80px;
+}
+
+.tooltip {
+      border-bottom: 1px dotted #000000; color: #000000; outline: none;
+      cursor: help; text-decoration: none;
+      position: relative;
+    }
+    .tooltip span {
+      margin-left: -999em;
+      position: absolute;
+    }
+    .tooltip:hover span {
+      border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+      font-family: Calibri, Tahoma, Geneva, sans-serif;
+      position: absolute; left: 1em; top: 2em; z-index: 99;
+      margin-left: 0; width: 250px;
+    }
+    .tooltip:hover img {
+      border: 0; margin: -10px 0 0 -55px;
+      float: left; position: absolute;
+    }
+    .tooltip:hover em {
+      font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold;
+      display: block; padding: 0.2em 0 0.6em 0;
+    }
+    .terms { text-align: center; }
+    .classic { padding: 0.8em 1em; }
+    .custom { padding: 0.5em 0.8em 0.8em 2em; }
+    * html a:hover { background: transparent; }
+    .classic {background: #FFFFAA; border: 1px solid #FFAD33; }
+    .critical { background: #FFCCAA; border: 1px solid #FF3334; }
+    .help { background: #9FDAEE; border: 1px solid #2BB0D7; }
+    .info { background: #9FDAEE; border: 1px solid #2BB0D7; }
+    .warning { background: #FFFFAA; border: 1px solid #FFAD33; }
