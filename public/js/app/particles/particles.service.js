@@ -48,7 +48,7 @@
 
     function createParticle(){
       // positionObj, life, angle (20 controls the variance), speed, color, keep
-      this.particles.push(new particleSystem.Particle(this.startPosition, Math.random() + 2, 90 + Math.random() * 20 * coinFlip(), Math.random() * 100 + 20, 'blue'));
+      this.particles.push(new particleSystem.Particle(this.startPosition, Math.random() + 2, 90 + Math.random() * 10 * coinFlip(), Math.random() * 100 + 20, 'blue'));
     }
 
     function createLossParticle(){

@@ -19,16 +19,45 @@
     vm.monthlySpendVal = 0;
     vm.cpmVal = 0;
     vm.totalWebVisits = 0;
-    vm.monthlyActiveUsers;
+    vm.monthlyActiveUsers = 0;
     vm.updateUsers = function(){
-      vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate));
-      vm.userLoss = Math.round((0.01 * vm.churnVal) * vm.monthlyActiveUsers);
+      // vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * vm.monthlyActiveUsers);
+      // vm.userLoss = Math.round((0.01 * vm.churnVal) * vm.monthlyActiveUsers);
+      vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
+      vm.lossCount = vm.userLoss = Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
+      vm.particles = [];
+      vm.lossParticles = [];
+      updateMonthlyArr();
+      // console.log('this is the monthlyactiveusers.length' + vm.monthlyActiveArr.length);
+      // console.log('this is the monthlyactiveusers figure' + vm.monthlyActiveUsers);
+      // console.log('this is vm.count ' + vm.count);
+      // console.log('this is vm.lossCount' + vm.lossCount);
+      if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers){
+        stream();
+      } else if (vm.monthlyActiveArr.length > vm.monthlyActiveUsers){
+        vm.lossCount = vm.monthlyActiveArr.length - vm.monthlyActiveUsers;
+        lossStream();
+      }
     }
     vm.conversionRate = 0;
     vm.churnVal = 0;
-    vm.userLoss;
-    // vm.updateUserLoss = function(){
-    // }
+    vm.userLoss = 0;
+    vm.updateUserLoss = function(){
+      vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
+      vm.lossCount = vm.userLoss = Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
+      vm.particles = [];
+      vm.lossParticles = [];
+      updateMonthlyArr();
+      console.log('this is the monthlyactiveusers.length' + vm.monthlyActiveArr.length);
+      console.log('this is the monthlyactiveusers figure' + vm.monthlyActiveUsers);
+      console.log('this is vm.count ' + vm.count);
+      console.log('this is vm.lossCount' + vm.lossCount);
+      if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers){
+        stream();
+      } else if (vm.monthlyActiveArr.length > vm.monthlyActiveUsers){
+        lossStream();
+      }
+    }
 
     // execute on next screen repaint
     vm.requestAnimationFrame = window.requestAnimationFrame ||
@@ -51,7 +80,7 @@
     vm.canvas = document.getElementById('canvas');
     vm.context = canvas.getContext('2d');
     canvas.width = 300;
-    canvas.height = 300;
+    canvas.height = 600;
     var lastTimestamp;
     vm.count = 0;
     vm.lossCount = 0;
@@ -64,18 +93,20 @@
 
     // let's create some particles to stream down
     function stream(){
-      if (count > 0){
+      if (vm.count > 0){
         vm.createParticle();
-        count--;
-        setTimeout(releaseOne, 60);
+        vm.count--;
+        setTimeout(stream, 60);
       }
     } // close stream
 
     // create some particles for the second emitter
     function lossStream(){
-      if (lossCount > 0){
+      // console.log('lossStream before if is being called');
+      if (vm.lossCount > 0){
+        // console.log('lossStream after if is being called');
         vm.createLossParticle();
-        lossCount--;
+        vm.lossCount--;
         setTimeout(lossStream, 60);
       }
     }
@@ -106,7 +137,7 @@
     function drawWater(){
       for (var i = 0; i < vm.monthlyActiveArr.length; i++){
         vm.context.fillStyle = 'blue';
-        vm.context.fillRect(vm.startPosition.x - 60, vm.startPosition.y + 180 - i, 120, i);
+        vm.context.fillRect(vm.startPosition.x - 60, vm.startPosition.y + 340 - i, 120, i);
       }
     } // this closes drawWater function
 
@@ -132,7 +163,7 @@
           vm.context.fillStyle = lossParticle.color;
           vm.context.beginPath();
           // circle: x, y, radius, startAng, endAng, anticlockwise Bool
-          vm.context.arc(lossParticle.position.x, lossParticle.position.y + 180, 5, 0, Math.PI * 2);
+          vm.context.arc(lossParticle.position.x, lossParticle.position.y + 340, 5, 0, Math.PI * 2);
           vm.context.closePath();
           vm.context.fill();
         }
@@ -151,7 +182,7 @@
       vm.context.fillRect(vm.startPosition.x - size / 2, vm.startPosition.y + 170, size, size);
 
     // draw glass
-      vm.context.strokeRect(vm.startPosition.x - 60, vm.startPosition.y + 40, 120, 140)
+      vm.context.strokeRect(vm.startPosition.x - 60, vm.startPosition.y + 40, 120, 300)
 
     } // closes draw function
 

@@ -10,37 +10,30 @@
   <div>
     <canvas id="canvas"></canvas>
   </div>
+
+  <div class="space">
+  </div>
+
   <div>
-    <button ng-click="vm.createParticle()">One</button>
+    <strong>Monthly Spend: $</strong><input type="text" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
   </div>
   <div>
-    <button ng-click="vm.stream()">Stream</button>
+    <input type="range" min="0" max="100" step="1" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
+  </div>
+  <div>
   </div>
 
   <div class="space">
   </div>
 
   <div>
-    <strong>Monthly Spend:</strong>
-  </div>
-  <div>
-    <input type="range" min="0" max="1000" step="1" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
-  </div>
-  <div>
-    ${{vm.monthlySpendVal}}
-  </div>
-
-  <div class="space">
-  </div>
-
-  <div>
-    <strong>Average CPM:</strong>
+    <strong>Average CPM: $</strong><input type="text" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
   </div>
   <div>
     <input type="range" min="0" max="100" step="1" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
   </div>
   <div>
-    ${{vm.cpmVal}}
+
   </div>
 
   <div class="space">
@@ -54,13 +47,10 @@
   </div>
 
   <div>
-    <strong>Conversion Rate:</strong>
+    <strong>Conversion Rate: <input type="text" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">%</strong>
   </div>
   <div>
     <input type="range" min="0" max="100" step="1" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">
-  </div>
-  <div>
-    {{vm.conversionRate}}%
   </div>
 
   <div class="space">
@@ -74,13 +64,10 @@
   </div>
 
   <div>
-    <strong>Churn:</strong>
+    <strong>Churn: <input type="text" ng-model="vm.churnVal" ng-change="vm.updateUsers()">%</strong>
   </div>
   <div>
-    <input type="range" min="0" max="100" step="1" ng-model="vm.churnVal" ng-change="vm.updateUsers()">
-  </div>
-  <div>
-    {{vm.churnVal}}%
+    <input type="range" min="0" max="100" step="1" ng-model="vm.churnVal" ng-change="vm.updateUserLoss()">
   </div>
 
   <div class="space">
