@@ -1,12 +1,81 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Demo Particles</title>
-  <link rel="stylesheet" href="css/particles.css">
+  <title>Demo Particle System</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
-<body>
-  <canvas></canvas>
-  <script src="js/particles-demo.js"></script>
-</body>
-</html>
+<body> -->
+  {{vm.title}}
+  <div>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <div class="space">
+  </div>
+
+  <div>
+    <strong>Monthly Spend: $</strong><input type="text" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
+  </div>
+  <div>
+    <input type="range" min="0" max="100" step="1" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
+  </div>
+  <div>
+  </div>
+
+  <div class="space">
+  </div>
+
+  <div>
+    <strong>Average CPM: $</strong><input type="text" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
+  </div>
+  <div>
+    <input type="range" min="0" max="100" step="1" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
+  </div>
+  <div>
+
+  </div>
+
+  <div class="space">
+  </div>
+
+  <div>
+    Total web visits: {{vm.cpmVal * vm.monthlySpendVal}}
+  </div>
+
+  <div class="space">
+  </div>
+
+  <div>
+    <strong>Conversion Rate: <input type="text" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">%</strong>
+  </div>
+  <div>
+    <input type="range" min="0" max="100" step="1" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">
+  </div>
+
+  <div class="space">
+  </div>
+
+  <div>
+    Monthly active users: {{vm.monthlyActiveUsers}}
+  </div>
+
+  <div class="space">
+  </div>
+
+  <div>
+    <strong>Churn: <input type="text" ng-model="vm.churnVal" ng-change="vm.updateUsers()">%</strong>
+  </div>
+  <div>
+    <input type="range" min="0" max="100" step="1" ng-model="vm.churnVal" ng-change="vm.updateUserLoss()">
+  </div>
+
+  <div class="space">
+  </div>
+
+  <div>
+    User loss: {{vm.userLoss}}
+  </div>
+
+<!-- </body>
+</html> -->

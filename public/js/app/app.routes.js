@@ -7,12 +7,8 @@
 
   function routes($urlRouterProvider, $stateProvider) {
     $stateProvider
-      // .state('welcome', {
-      //   url: '/welcome',
-      //   templateUrl: 'js/app/welcome/welcome.html'
-      // })
       .state('investors', {
-        url: '/investors',
+        url: '/',
         templateUrl: 'js/app/investors/investors.html',
         controller: 'SearchController as vm'
       })
@@ -25,11 +21,11 @@
         templateUrl: 'js/app/terms/terms.html',
         controller: 'TermsController as vm'
       })
-      .state('sliders', {
-        url: '/sliders',
-        templateUrl: 'js/app/sliders/sliders.html',
-        controller: 'SlidersController as vm'
+      .state('particles', {
+        url: '/particles',
+        templateUrl: 'js/app/particles/particles.html',
+        controller: 'ParticlesController as vm'
       });
-    $urlRouterProvider.otherwise('/sliders');
+    $urlRouterProvider.otherwise('/');
   }
 })();
