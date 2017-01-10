@@ -11,7 +11,6 @@
 
     vm.particleSystem = window.particleSystem || {};
 
-    vm.title = 'hey there';
     vm.createParticle = ParticlesService.createParticle;
     vm.createLossParticle = ParticlesService.createLossParticle;
 
@@ -142,8 +141,12 @@
     } // this closes drawWater function
 
     function draw(){
-      vm.context.fillStyle = 'white';
+      vm.context.fillStyle = 'rgba(255, 255, 255, 0)';
       vm.context.fillRect(0, 0, vm.context.canvas.width, vm.context.canvas.height);
+
+    // draw glass
+      vm.context.fillStyle = 'white';
+      vm.context.fillRect(vm.startPosition.x - 60, vm.startPosition.y + 40, 120, 300)
 
   // draw each one in the array
       vm.particles.forEach(function(particle){
@@ -180,9 +183,6 @@
     // draw the second emitter near the bottom
       vm.context.fillStyle = 'rgba(255, 255, 255, 0)'
       vm.context.fillRect(vm.startPosition.x - size / 2, vm.startPosition.y + 170, size, size);
-
-    // draw glass
-      vm.context.strokeRect(vm.startPosition.x - 60, vm.startPosition.y + 40, 120, 300)
 
     } // closes draw function
 
