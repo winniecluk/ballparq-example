@@ -53,14 +53,13 @@
 
     function createLossParticle(){
       var keep = Math.random() > 0.5 ? true : false;
-      this.lossParticles.push(new particleSystem.Particle(this.startPosition, Math.random() + 1, 90 + Math.random() * 60 * coinFlip(), Math.random() * 100 + 20, 'red', keep))
+      this.lossParticles.push(new particleSystem.Particle(this.startPosition, Math.random() + 1, 90 + Math.random() * 60 * coinFlip(), Math.random() * 100 + 20, 'blue'));
     }
 
 
     var service = {
       createParticle: createParticle,
       createLossParticle: createLossParticle
-      // do I need to return the update method? it's inherent in particle
     };
 
     return service;

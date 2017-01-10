@@ -11,7 +11,6 @@
 
     vm.particleSystem = window.particleSystem || {};
 
-    vm.title = 'hey there';
     vm.createParticle = ParticlesService.createParticle;
     vm.createLossParticle = ParticlesService.createLossParticle;
 
@@ -21,17 +20,11 @@
     vm.totalWebVisits = 0;
     vm.monthlyActiveUsers = 0;
     vm.updateUsers = function(){
-      // vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * vm.monthlyActiveUsers);
-      // vm.userLoss = Math.round((0.01 * vm.churnVal) * vm.monthlyActiveUsers);
       vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
       vm.lossCount = vm.userLoss = Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
       vm.particles = [];
       vm.lossParticles = [];
       updateMonthlyArr();
-      // console.log('this is the monthlyactiveusers.length' + vm.monthlyActiveArr.length);
-      // console.log('this is the monthlyactiveusers figure' + vm.monthlyActiveUsers);
-      // console.log('this is vm.count ' + vm.count);
-      // console.log('this is vm.lossCount' + vm.lossCount);
       if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers){
         stream();
       } else if (vm.monthlyActiveArr.length > vm.monthlyActiveUsers){
@@ -48,10 +41,6 @@
       vm.particles = [];
       vm.lossParticles = [];
       updateMonthlyArr();
-      console.log('this is the monthlyactiveusers.length' + vm.monthlyActiveArr.length);
-      console.log('this is the monthlyactiveusers figure' + vm.monthlyActiveUsers);
-      console.log('this is vm.count ' + vm.count);
-      console.log('this is vm.lossCount' + vm.lossCount);
       if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers){
         stream();
       } else if (vm.monthlyActiveArr.length > vm.monthlyActiveUsers){
@@ -145,6 +134,9 @@
       vm.context.fillStyle = 'white';
       vm.context.fillRect(0, 0, vm.context.canvas.width, vm.context.canvas.height);
 
+    // draw glass
+      vm.context.strokeRect(vm.startPosition.x - 60, vm.startPosition.y + 40, 120, 300)
+
   // draw each one in the array
       vm.particles.forEach(function(particle){
         if (particle.life > 0){
@@ -181,9 +173,6 @@
       vm.context.fillStyle = 'rgba(255, 255, 255, 0)'
       vm.context.fillRect(vm.startPosition.x - size / 2, vm.startPosition.y + 170, size, size);
 
-    // draw glass
-      vm.context.strokeRect(vm.startPosition.x - 60, vm.startPosition.y + 40, 120, 300)
-
     } // closes draw function
 
     // recursive -- keep calling that requestAnimationFrame
@@ -209,9 +198,6 @@
       window.requestAnimationFrame(play);
 
     } // close play function
-
-
-
 
     play(new Date().getTime());
 
