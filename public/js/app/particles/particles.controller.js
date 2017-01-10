@@ -24,8 +24,8 @@
       // vm.userLoss = Math.round((0.01 * vm.churnVal) * vm.monthlyActiveUsers);
       vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
       vm.lossCount = vm.userLoss = Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
-      vm.particles = [];
-      vm.lossParticles = [];
+      // vm.particles = [];
+      // vm.lossParticles = [];
       updateMonthlyArr();
       // console.log('this is the monthlyactiveusers.length' + vm.monthlyActiveArr.length);
       // console.log('this is the monthlyactiveusers figure' + vm.monthlyActiveUsers);
@@ -44,8 +44,8 @@
     vm.updateUserLoss = function(){
       vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
       vm.lossCount = vm.userLoss = Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
-      vm.particles = [];
-      vm.lossParticles = [];
+      // vm.particles = [];
+      // vm.lossParticles = [];
       updateMonthlyArr();
       console.log('this is the monthlyactiveusers.length' + vm.monthlyActiveArr.length);
       console.log('this is the monthlyactiveusers figure' + vm.monthlyActiveUsers);
