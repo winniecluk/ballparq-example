@@ -53,7 +53,7 @@
 
     function createLossParticle(){
       var keep = Math.random() > 0.5 ? true : false;
-      this.lossParticles.push(new particleSystem.Particle(this.startPosition, Math.random() + 1, 90 + Math.random() * 60 * coinFlip(), Math.random() * 100 + 20, 'blue'));
+      this.lossParticles.push(new particleSystem.Particle(this.startLossPosition, Math.random() + 1, 90 + Math.random() * 60 * coinFlip(), Math.random() * 100 + 20, 'blue'));
     }
 
 
