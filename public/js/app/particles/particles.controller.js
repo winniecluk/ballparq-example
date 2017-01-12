@@ -22,12 +22,8 @@
     vm.updateUsers = function(){
       vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
       vm.lossCount = vm.userLoss = Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
-      vm.particles = [];
-      vm.lossParticles = [];
       updateMonthlyArr();
       stream();
-      lossStream();
-      }
     }
     vm.conversionRate = 0;
     vm.churnVal = 0;
@@ -39,12 +35,12 @@
     // canvas variables
     vm.canvas = document.getElementById('canvas');
     vm.context = canvas.getContext('2d');
-    canvas.width = 300;
-    canvas.height = 600;
+    canvas.width = 240;
+    canvas.height = 500;
     var spigotObj = new Image();
     spigotObj.src = '../../../images/spigot.png';
     spigotObj.onload = function(){
-      vm.context.drawImage(spigotObj, 40, 110, 120, 120);
+      vm.context.drawImage(spigotObj, 10, 10, 120, 120);
     }
     var lastTimestamp;
     vm.count = 0;
@@ -52,27 +48,20 @@
 
     vm.startPosition = {
       x: vm.canvas.width / 2,
-      y: vm.canvas.height * 1/3
+      y: vm.canvas.height * 1/3 - 65
     };
 
     vm.startLossPosition = {
       x: vm.canvas.width / 2,
-      y: (vm.canvas.height * 1/3) + 330
+      y: (vm.canvas.height * 1/3) + 265
     }
 
     function stream(){
       if (vm.count > 0){
         vm.createParticle();
+        vm.createLossParticle();
         vm.count--;
         setTimeout(stream, 60);
-      }
-    }
-
-    function lossStream(){
-      if (vm.lossCount > 0){
-        vm.createLossParticle();
-        vm.lossCount--;
-        setTimeout(lossStream, 60);
       }
     }
 

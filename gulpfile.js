@@ -14,7 +14,7 @@ gulp.task('styles', function(){
 gulp.task('scripts', function(){
   return gulp.src(['public/js/app/app.module.js', 'public/js/app/app.routes.js', 'public/js/app/**/*.js'])
     .pipe(concat('all.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -23,4 +23,4 @@ gulp.task('scripts', function(){
 
 gulp.task('default', ['styles', 'scripts']);
 
-// gulp.watch(['public/css/**/*.css', 'public/js/**/*.js'], ['default'])
+gulp.watch(['public/css/**/*.css', 'public/js/**/*.js'], ['default'])

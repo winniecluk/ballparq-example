@@ -1,79 +1,80 @@
-<div class="floatleft">
+<div class="bluebackground floatleft">
   <div>
-    <canvas id="canvas"></canvas>
-  </div>
-</div>
-
-<div class="floatleft rightwidth">
-  <div class="space">
+    <div>
+      <canvas id="canvas"></canvas>
+    </div>
   </div>
 
-  <div class="heading">
-    <strong>Monthly Spend: &nbsp;&nbsp; $</strong><input type="text" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
-  </div>
-  <div>
-    <input type="range" min="0" max="100" step="1" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
-  </div>
-  <div>
-  </div>
+  <div class="rightwidth">
+    <div class="space">
+    </div>
 
-  <div class="space">
-  </div>
-
-  <div class="heading">
-    <strong>Average CPM: &nbsp;&nbsp; $</strong><input type="text" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
-  </div>
-  <div>
-    <input type="range" min="0" max="100" step="1" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
-  </div>
-  <div>
-
-  </div>
-
-  <div class="space">
-  </div>
-
-  <div class="heading">
-    Total web visits: {{vm.cpmVal * vm.monthlySpendVal}}
-  </div>
-
-  <div class="space">
-  </div>
-  <div class="space">
-  </div>
+    <div class="heading">
+      <strong>Monthly Spend: &nbsp;&nbsp; $</strong><input type="text" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
+      <input type="range" min="0" max="100" step="1" ng-model="vm.monthlySpendVal" ng-change="vm.updateUsers()">
+    </div>
+    <div>
+    </div>
 
 
-  <div class="heading">
-    <strong>Conversion Rate: &nbsp;&nbsp; <input type="text" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">%</strong>
-  </div>
-  <div>
-    <input type="range" min="0" max="100" step="1" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">
-  </div>
+    <div class="space">
+    </div>
 
-  <div class="space">
-  </div>
+    <div class="heading">
+      <strong>Average CPM: &nbsp;&nbsp; $</strong><input type="text" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
+    </div>
+    <div>
+      <input type="range" min="0" max="100" step="1" ng-model="vm.cpmVal" ng-change="vm.updateUsers()">
+    </div>
+    <div>
 
-  <div class="heading">
-    Monthly active users: {{vm.monthlyActiveUsers}}
-  </div>
+    </div>
 
-  <div class="space">
-  </div>
-  <div class="space">
-  </div>
+    <div class="space">
+    </div>
+
+    <div class="heading">
+      Total web visits: {{vm.cpmVal * vm.monthlySpendVal}}
+    </div>
+
+    <div class="space">
+    </div>
+    <div class="space">
+    </div>
 
 
-  <div class="heading">
-    <strong>Churn: &nbsp;&nbsp; <input type="text" ng-model="vm.churnVal" ng-change="vm.updateUsers()">%</strong>
-  </div>
-  <div>
-    <input type="range" min="0" max="100" step="1" ng-model="vm.churnVal" ng-change="vm.updateUsers()">
-  </div>
+    <div class="heading">
+      <strong>Conversion Rate: &nbsp;&nbsp; <input type="text" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">%</strong>
+    </div>
+    <div>
+      <input type="range" min="0" max="100" step="1" ng-model="vm.conversionRate" ng-change="vm.updateUsers()">
+    </div>
 
-  <div class="space">
-  </div>
+    <div class="space">
+    </div>
 
-  <div class="heading">
-    User loss: {{vm.userLoss}}
+    <div class="heading">
+      Monthly active users: {{vm.monthlyActiveUsers}}
+    </div>
+
+    <div class="space">
+    </div>
+    <div class="space">
+    </div>
+
+
+    <div class="heading">
+      <strong>Churn: &nbsp;&nbsp; <input type="text" ng-model="vm.churnVal" ng-change="vm.updateUsers()">%</strong>
+    </div>
+    <div>
+      <input type="range" min="0" max="100" step="1" ng-model="vm.churnVal" ng-change="vm.updateUsers()">
+    </div>
+
+    <div class="space">
+    </div>
+
+    <div class="heading">
+      User loss: {{vm.userLoss}}
+    </div>
   </div>
 </div>
