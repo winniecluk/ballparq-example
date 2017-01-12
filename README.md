@@ -1,11 +1,9 @@
-To install:
+[Deployed app](https://ballparq.herokuapp.com/)
 
-    cd server && npm install
+Installation:
+
+    npm install
 
 To run:
 
-    cd server && nodemon
-
-On the chance that you have not installed nodemon:
-
-    cd server && npm start
+    npm start
