@@ -25,6 +25,11 @@
         url: '/particles',
         templateUrl: 'js/app/particles/particles.html',
         controller: 'ParticlesController as vm'
+      })
+      .state('steps', {
+        url: '/steps',
+        templateUrl: 'js/app/steps/steps.html',
+        controller: 'stepsController as vm'
       });
     $urlRouterProvider.otherwise('/');
   }
