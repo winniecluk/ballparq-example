@@ -49,15 +49,15 @@
     }
 
     // execute on next screen repaint
-    vm.requestAnimationFrame =
-      window.mozRequestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      function(cb) {
-        // 60 fps is the typical user's screen refresh rate
-        window.setTimeout(cb, 3000);
-      };
+    // vm.requestAnimationFrame = window.requestAnimationFrame ||
+    //   window.mozRequestAnimationFrame ||
+    //   window.webkitRequestAnimationFrame ||
+    //   window.msRequestAnimationFrame ||
+    //   window.oRequestAnimationFrame ||
+    //   function(cb) {
+    //     // 60 fps is the typical user's screen refresh rate
+    //     window.setTimeout(cb, 5/3);
+    //   };
 
     // hold newly created particles
     vm.particles = [];
@@ -70,6 +70,13 @@
     vm.context = canvas.getContext('2d');
     canvas.width = 300;
     canvas.height = 600;
+    var spigotObj = new Image();
+    spigotObj.src = '../../../images/spigot.png';
+
+    spigotObj.onload = function(){
+      vm.context.drawImage(spigotObj, 40, 110, 120, 120);
+    }
+
     var lastTimestamp;
     vm.count = 0;
     vm.lossCount = 0;
@@ -82,7 +89,7 @@
 
     vm.startLossPosition = {
       x: vm.canvas.width / 2,
-      y: (vm.canvas.height * 1/3) + 340
+      y: (vm.canvas.height * 1/3) + 330
     }
 
     // let's create some particles to stream down
@@ -111,7 +118,7 @@
       // if <, pop
 
       function pushOne(){
-        if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers){
+        if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers && vm.monthlyActiveArr.length < 600){
             vm.monthlyActiveArr.push(1);
             setTimeout(pushOne, 60);
         } // close if
@@ -131,17 +138,19 @@
     function drawWater(isErase){
       if (isErase){
         // erase water
-        for (var i = 0; i < vm.monthlyActiveArr.length; i++){
+        for (let i = 0; i < vm.monthlyActiveArr.length; i++){
           vm.context.globalCompositeOperation = 'destination-out';
           vm.context.fillStyle = 'rgba(0, 0, 0, 1)';
-          vm.context.fillRect(vm.startPosition.x - 60, vm.startPosition.y + 335 - i, 120, i + 5);
+          var halfI = 0.5 * i;
+          vm.context.fillRect(vm.startPosition.x - 60, vm.startPosition.y + 335 - halfI, 120, halfI + 5);
         }
         // draw water
       } else {
-        for (var i = 0; i < vm.monthlyActiveArr.length; i++){
+        for (let i = 0; i < vm.monthlyActiveArr.length && i < 590; i++){
           vm.context.globalCompositeOperation = 'source-over';
           vm.context.fillStyle = 'blue';
-          vm.context.fillRect(vm.startPosition.x - 60, vm.startPosition.y + 340 - i, 120, i);
+          var halfI = 0.5 * i;
+          vm.context.fillRect(vm.startPosition.x - 60, vm.startPosition.y + 340 - halfI, 120, halfI);
         }
       }
     } // this closes drawWater function
@@ -155,7 +164,6 @@
       // vm.context.fillStyle = 'rgba'
       vm.context.strokeRect(vm.startPosition.x - 60, vm.startPosition.y + 40, 120, 300)
 
-
       vm.allParticles = vm.particles.concat(vm.lossParticles);
 
   // draw each one in the array
@@ -166,7 +174,7 @@
           vm.context.fillStyle = particle.color;
           vm.context.beginPath();
           // circle: x, y, radius, startAng, endAng, anticlockwise Bool
-          vm.context.arc(particle.position.x, particle.position.y + 16, 5, 0, Math.PI * 2);
+          vm.context.arc(particle.position.x, particle.position.y + 16, Math.random() * 5, 0, Math.PI * 2);
           vm.context.closePath();
           vm.context.fill();
           // eraseParticles();
@@ -183,7 +191,7 @@
         vm.context.fillStyle = 'rgba(0, 0, 0, 1)';
         vm.context.beginPath();
         // circle: x, y, radius, startAng, endAng, anticlockwise Bool
-        vm.context.arc(particle.position.x, particle.position.y + 16, 6, 0, Math.PI * 2);
+        vm.context.arc(particle.position.x, particle.position.y + 16, 10, 0, Math.PI * 2);
         vm.context.closePath();
         vm.context.fill();
         // vm.context.fill();
@@ -219,9 +227,6 @@
       }) // closes forEach fct
     } // closes eraseParticles
 
-
-
-
     drawParticles();
     // drawLossParticles();
     // setTimeout(eraseLossParticles, 100);
@@ -231,13 +236,13 @@
       // drawWater();
 
     // draw the emitter
-      vm.context.fillStyle = 'gray';
-      var size = 10;
-      vm.context.fillRect(vm.startPosition.x - size / 2, vm.startPosition.y - size / 2 + size, size, size);
+      // vm.context.fillStyle = 'gray';
+      // var size = 10;
+      // vm.context.fillRect(vm.startPosition.x - size / 2, vm.startPosition.y - size / 2 + size, size, size);
 
     // draw the second emitter near the bottom
-      vm.context.fillStyle = 'rgba(255, 255, 255, 0)'
-      vm.context.fillRect(vm.startPosition.x - size / 2, vm.startPosition.y + 170, size, size);
+      // vm.context.fillStyle = 'rgba'
+      // vm.context.fillRect(vm.startPosition.x - size / 2, vm.startPosition.y + 330, size, size);
 
     } // closes draw function
 
