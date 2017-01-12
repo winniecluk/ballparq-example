@@ -25,29 +25,13 @@
       vm.particles = [];
       vm.lossParticles = [];
       updateMonthlyArr();
-      if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers){
-        stream();
-      } else if (vm.monthlyActiveArr.length > vm.monthlyActiveUsers){
-        vm.lossCount = vm.monthlyActiveArr.length - vm.monthlyActiveUsers;
-        lossStream();
+      stream();
+      lossStream();
       }
     }
     vm.conversionRate = 0;
     vm.churnVal = 0;
     vm.userLoss = 0;
-    vm.updateUserLoss = function(){
-      vm.count = vm.monthlyActiveUsers = Math.round((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)) - Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
-      vm.lossCount = vm.userLoss = Math.round((0.01 * vm.churnVal) * ((vm.monthlySpendVal * vm.cpmVal) * (0.01 * vm.conversionRate)));
-      vm.particles = [];
-      vm.lossParticles = [];
-      updateMonthlyArr();
-      if (vm.monthlyActiveArr.length < vm.monthlyActiveUsers){
-        stream();
-      } else if (vm.monthlyActiveArr.length > vm.monthlyActiveUsers){
-        lossStream();
-      }
-    }
-
     vm.particles = [];
     vm.lossParticles = [];
     vm.monthlyActiveArr = [];
