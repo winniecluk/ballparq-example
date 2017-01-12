@@ -1,0 +1,33 @@
+<div class="container f-container">
+
+  <div class="row f-top">
+    <div ng-show="pg1" class="pages page-1">
+
+    </div>
+    <div ng-show="pg2" class="pages page-2">
+
+    </div>
+    <div ng-show="pg3" class="pages page-3">
+
+    </div>
+    <div ng-show="pg4" class="pages page-4">
+
+    </div>
+  </div>
+
+  <div class="row f-bottom">
+    <div class="col-sm-3 pb-container" ng-class="{ 'pb-selected': pg1 }">
+      <img ng-click="pg1 = true; pg2 = false; pg3 = false; pg4 = false" class="parq-button" src="../../../images/diamond_solid_blue.png">
+    </div>
+    <div class="col-sm-3 pb-container" ng-class="{ 'pb-selected': pg2 }">
+      <img ng-click="pg1 = false; pg2 = true; pg3 = false; pg4 = false" class="parq-button" src="../../../images/diamond_solid_green.png">
+    </div>
+    <div class="col-sm-3 pb-container" ng-class="{ 'pb-selected': pg3 }">
+      <img ng-click="pg1 = false; pg2 = false; pg3 = true; pg4 = false" class="parq-button" src="../../../images/diamond_solid_red.png">
+    </div>
+    <div class="col-sm-3 pb-container" ng-class="{ 'pb-selected': pg4 }">
+      <img ng-click="pg1 = false; pg2 = false; pg3 = false; pg4 = true" class="parq-button" src="../../../images/diamond_solid_yellow.png">
+    </div>
+  </div>
+
+</div>

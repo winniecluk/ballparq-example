@@ -5,7 +5,7 @@ body {
   font-family: 'Raleway', sans-serif;
   color: #ffd477;
   background-color: #4d8bcf;
-  background-image: url("logoBackground2.png");
+  background-image: url("./images/logoBackground2.png");
   background-repeat: repeat-y;
   background-size: cover;
 }
