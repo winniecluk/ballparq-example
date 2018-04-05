@@ -76,6 +76,14 @@ canvas {
   margin-bottom: -80px;
 }
 
+.lightgray {
+  background: lightgray;
+}
+
+div.rightwidth input[type="text"] {
+  color: black;
+}
+
 .tooltip {
       border-bottom: 1px dotted #000000; color: #000000; outline: none;
       cursor: help; text-decoration: none;
